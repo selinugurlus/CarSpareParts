@@ -1,0 +1,34 @@
+﻿@model WebApplication3.Models.Customer
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>Create New Account</h1>
+<br />
+
+
+<form method="post" action="Register">
+    <div class="mb-3">
+        <label for="exampleInputEmail1">Customer Id:</label>
+        <input type="text" class="form-control" asp-for="customer_id">
+
+        <label for="exampleInputEmail1">Firstname:</label>
+        <input type="text" class="form-control" asp-for="customer_firstname">
+
+        <label for="exampleInputEmail1">Lastname:</label>
+        <input type="text" class="form-control" asp-for="customer_lastname">
+
+        <label for="exampleInputEmail1">Mail:</label>
+        <input type="text" class="form-control" asp-for="customer_mail" />
+
+        <label for="exampleInputEmail1">Password:</label>
+        <input type="password" class="form-control" asp-for="customer_pass">
+
+    </div>
+    <button type="submit" class="btn btn-success">Register</button>
+   @* <a asp-action="GetProducts" class="btn btn-info">Get Products</a>*@
+</form>
+
+
+

@@ -1,0 +1,104 @@
+﻿@using WebApplication3.Controllers
+@model CartViewModel
+
+@{
+    ViewData["Title"] = "CartOverview";
+}
+<h1>Cart Overview</h1>
+
+
+
+
+@if(Model.CartItems.Count>0)
+{
+    <table class="table">
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th></th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+    
+    @foreach(var item in Model.CartItems)
+    {
+        <tr>
+            <td>@item.product_name</td>
+            <td>@item.quantity</td>
+            <td>
+                <a class="btn-primary btn-sm" asp-action="Add" asp-rouye-id="@item.product_id">+</a>
+                <a class="btn-info btn-sm" asp-action="Decrease" asp-rouye-id="@item.product_id">-</a>
+                <a class="btn-danger btn-sm" asp-action="Remove" asp-rouye-id="@item.product_id">Remove</a>
+            </td>
+            <td>@item.price</td>
+            <td>@Model.CartItems.Where(x=>x.product_id==item.product_id).Sum(x=>x.quantity*x.price).ToString("C2")</td>
+        </tr>
+    }
+    <tr >
+        <td class="text-right" colspan="4">Grand Total: @Model.GrandTotal.ToString("C2")</td>
+    </tr>
+    <tr>
+        <td class="text-right" colspan="4">
+            <a class="btn btn-danger"  asp-action="Clear">Clear Cart</a>
+            <a class="btn btn-primary" href="Cart/Checkout">Payment</a>
+        </td>
+    </tr>
+    </table>
+}
+else
+{
+   <h3 class="display-4 text-center">Your cart is empty.</h3> 
+}
+
+
+
+
+
+
+@*@using (Html.BeginForm("ProcessOrder", "Cart", FormMethod.Post, new { id = "customer-form" }))
+{
+
+    <table>
+        <tr>
+            <td colspan="3" style="text-align:center;"><b>Customer's Information</b></td>
+        </tr>
+        <tr>
+            <td>Customer Name:</td>
+            <td><input type="text" name="cusName" /></td>
+        </tr>
+        <tr>
+            <td>Customer Phone:</td>
+            <td><input type="text" name="cusPhone" /></td>
+        </tr>
+        <tr>
+            <td>Customer Email:</td>
+            <td><input type="text" name="cusEmail" /></td>
+        </tr>
+        <tr>
+            <td>Customer Address:</td>
+            <td><input type="text" name="cusAddress" /></td>
+        </tr>
+        <tr>
+            <td colspan="3"><input type="submit" value="Process Order" class="update-shopping" /></td>
+        </tr>
+    </table>
+}*@
+
+
+
+
+
+@*@using(Html.BeginForm("CreateOrder","Cart"))
+{
+    <div class="mb-3">
+        <label for="exampleInputEmail1">Address</label>
+        <input type="text" name="address">
+        <label for="exampleInputEmail1">Customer no:</label>
+        <input type="text" name="customer_id">
+        <label for="exampleInputEmail1">Order id:</label>
+        <input type="text" name="order_id">
+        <label for="exampleInputEmail1">product id:</label>
+        <input type="text" name="product_id">
+        <label for="exampleInputEmail1">date:</label>
+        @*<input type="text" asp-controller="Cart" asp-for="@Order.order_date">*@
+   

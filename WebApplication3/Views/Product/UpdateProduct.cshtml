@@ -1,0 +1,83 @@
+﻿@model WebApplication3.Models.Product
+
+@{
+    ViewData["Title"] = "UpdateProduct";
+}
+
+
+
+<h1>Update Product</h1>
+
+ <div class="row">
+    <div class="col-md-6 offset-md-3">
+        <form asp-action="UpdateProduct" method="post">
+        <input type="hidden" asp-for="@Model.product_id">
+        <p> Product Name:</p>
+        <input class="form-control" asp-for="@Model.product_name" />
+        <p> Car Model:</p>
+        <input class="form-control" asp-for="@Model.car_model" />
+        <p> Stock:</p>
+        <input class="form-control" asp-for="@Model.stock" />
+        <textarea> Price:</textarea>
+        <input class="form-control" asp-for="@Model.price" />
+        <p> Image:</p>
+        <input class="form-control" asp-for="@Model.image" />
+        <button class="btn btn-info" type="submit">Update</button>
+        
+        </form>
+    </div>
+ </div>
+
+
+        
+        @*<form asp-action="UpdateProduct" autocomplete="off">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="product_id" />
+           
+
+            <div class="form-group">
+                <label asp-for="car_model" class="control-label"></label>
+                <input asp-for="car_model" class="form-control" />
+                <span asp-validation-for="car_model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="product_name" class="control-label"></label>
+                <input asp-for="product_name" class="form-control" />
+                <span asp-validation-for="product_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="stock" class="control-label"></label>
+                <input asp-for="stock" class="form-control" />
+                <span asp-validation-for="stock" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label"></label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="image" class="control-label"></label>
+                <input asp-for="image" class="form-control" />
+                <span asp-validation-for="image" class="text-danger"></span>
+            </div>
+         
+            <div class="row mt-2">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="submit" value="Submit" class="btn btn-primary w-100" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <a asp-action="GetProducts" class="btn btn-secondary  w-100">View All</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}*@

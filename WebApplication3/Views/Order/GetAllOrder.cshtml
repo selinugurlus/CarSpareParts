@@ -1,0 +1,29 @@
+﻿@model IEnumerable<WebApplication3.Models.Order>
+@{
+    ViewData["Title"] = "GetAllOrder";
+}
+
+<h2>Orders</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Order ID</th>
+        <th>Order Date</th>
+        <th>Product ID</th>
+        <th>Address</th>
+        <th>Customer ID</th>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th>@x.order_id</th>
+            <th>@x.order_date</th>
+            <th>@x.product_id</th>
+            <th>@x.address</th>
+            <th>@x.customer_id</th>
+            
+        </tr>
+    }
+</table>
+

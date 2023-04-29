@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebApplication3.Models.Product>
+
+
+
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<h2>Products</h2>
+<br />
+<table class="table table-bordered"> 
+    <tr>
+        
+        <th>Product ID</th>
+        <th>Car Model</th>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Stock</th>
+        <th>   </th>
+
+    </tr>
+    @foreach(var x in Model)
+    {
+        <tr>
+            
+            <th>@x.product_id</th>
+            <th>@x.car_model</th>
+            <th>@x.product_name</th>
+            <th>@x.price</th>
+            <th>@x.stock</th>
+            @* <th><button type="submit" class="btn btn-danger" href="/Products/DeleteProduct/@x.product_id">Delete</button> </th>*@
+            <th> <a asp-action="DeleteProduct" asp-route-id="@x.product_id" class="btn btn-danger  w-100">Delete</a></th>
+            <th> <a asp-action="UpdateProduct" asp-route-id="@x.product_id" class="btn btn-info w-100">Update</a></th>
+            @* <th> <a asp-action="UpdateProduct" asp-controller="Products" class="btn btn-secondary  w-100">Update</a></th>*@
+            @* <th><button type="submit" class="btn btn-primary">Update</button></th>*@
+             
+        </tr>
+
+    }
+    <a asp-action="AddProduct" class="btn btn-success">Add New Product</a>
+
+</table>

@@ -1,0 +1,39 @@
+﻿@model WebApplication3.Models.Product
+@{
+    ViewData["Title"] = "AddProduct";
+}
+
+
+
+<h1>Add New Product</h1>
+<br />
+
+
+<form method="post" action="AddProduct">
+    <div class="mb-3">
+        <label for="exampleInputEmail1">Product Id:</label>
+        <input type="text" class="form-control" asp-for="product_id">
+       
+        <label for="exampleInputEmail1">Car Model:</label>
+        <input type="text" class="form-control" asp-for="car_model">
+
+        <label for="exampleInputEmail1">Product Name:</label>
+        <input type="text" class="form-control" asp-for="product_name">
+   
+        <label for="exampleInputEmail1">Price:</label>
+        <input type="text" class="form-control" asp-for="price"/>
+         
+        <label for="exampleInputEmail1">Stock:</label>
+        <input type="text" class="form-control"asp-for="stock">
+       
+        <label for="exampleInputEmail1">image</label>
+        <input type="text" class="form-control" asp-for="image">
+
+
+    
+       
+    
+    </div>
+    <button type="submit" class="btn btn-success">Add</button>
+    <a asp-action="GetProducts" class="btn btn-info">Get Products</a>
+</form>

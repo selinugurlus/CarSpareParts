@@ -1,0 +1,144 @@
+﻿@using WebApplication3.Models;
+@using WebApplication3.Controllers;
+@model Order;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="container">
+    <main role="main" class="pb-3">
+        <div class="row">
+            <div class="bg-success mt-3 p-3 text-white">
+                <vc:small-cart />
+            </div>
+
+        </div>
+    </main>
+
+
+<form method="post" action="CreateOrder">
+    <div class="mb-3">
+        <p>Customer İnfo</p>
+
+        <label for="exampleInputEmail1">Customer Id:</label>
+        <input type="text" class="form-control" asp-for="customer_id">
+
+        <label for="exampleInputEmail1">pro id</label>
+        <input type="text" class="form-control" asp-for="product_id">
+
+        <label for="exampleInputEmail1">adres</label>
+        <input type="text" class="form-control" asp-for="address">
+
+        <br />
+
+        <p>Card Info</p>
+
+        <label for="exampleInputEmail1">Card Number:</label>
+        <input type="text" class="form-control" >
+
+        <label for="exampleInputEmail1">CVC Code: </label>
+        <input type="text" class="form-control" >
+
+    </div>
+    <button type="submit" class="btn btn-success" >Payment</button>
+    @* <a asp-action="GetProducts" class="btn btn-info">Get Products</a>*@
+</form>
+
+
+
+
+
+@{
+//    if (Session["Cart"] != null)
+//    {
+//        <table class="shopping-cart">
+//            <tr>
+//                <th>Name</th>
+//                <th>Price</th>
+//                <th>Quantity</th>
+//                <th>Sub Total</th>
+//            </tr>
+
+//            @foreach (var cart in (List<Cart>)Session["Cart"])
+//            {
+//                <tr>
+//                    <td>@Html.ActionLink(cart.product_name, "Details", "Products", new { id = cart.product_id }, new { @class = "delete-shopping" })</td>
+//                    <td>$@(String.Format("{0:N0}", cart.price))</td>
+//                    <td>
+//                        <input type="text" name="quantity" id="quantity" value="@cart.quantity" readonly />
+//                    </td>
+//                    <td>$@(String.Format("{0:N0}", cart.price * cart.quantity))</td>
+//                </tr>
+//            }@*End of foreach cart items*@
+
+//            <tr>
+//                <td colspan="3" class="total-price-text">Total:</td>
+//                <td class="total-price-digit">
+//                    @{
+//                        List<Cart> temp = (List<Cart>)Session["Cart"];
+//                        var total = String.Format("{0:N0}", temp.Sum(x => x.quantity * x.price));
+//                    }
+
+//                    $@total
+//                </td>
+//            </tr>
+//        </table>
+//    } @*End of if session*@
+//    else
+//    {
+//        <h4> No items in your cart!!!</h4>
+//    }
+//}
+
+//<br />
+//@using (Html.BeginForm("ProcessOrder", "Cart", FormMethod.Post, new { id = "customer-form" }))
+//{
+
+//    <table>
+//        <tr>
+//            <td colspan="3" style="text-align:center;"><b>Customer's Information</b></td>
+//        </tr>
+//        <tr>
+//            <td>Customer Name:</td>
+//            <td><input type="text" name="cusName" /></td>
+//        </tr>
+//        <tr>
+//            <td>Customer Phone:</td>
+//            <td><input type="text" name="cusPhone" /></td>
+//        </tr>
+//        <tr>
+//            <td>Customer Email:</td>
+//            <td><input type="text" name="cusEmail" /></td>
+//        </tr>
+//        <tr>
+//            <td>Customer Address:</td>
+//            <td><input type="text" name="cusAddress" /></td>
+//        </tr>
+//        <tr>
+//            <td colspan="3"><input type="submit" value="Process Order" class="update-shopping" /></td>
+//        </tr>
+//    </table>
+//}
+
+//<script type="text/javascript">
+//    $("#customer-form").validate({
+//        rules: {
+//            cusName: {
+//                required: true
+//            },
+//            cusPhone: {
+//                required: true
+//            },
+//            cusEmail: {
+//                required: true
+//            },
+//            cusAddress: {
+//                required: true
+//            }
+//        }
+//    });
+//</script>
+
+}
